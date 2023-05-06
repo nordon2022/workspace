@@ -1,0 +1,39 @@
+<div class="flex justify-content-center">
+  <div class="flex justify-content-center">
+    <div class=" p-4 shadow-2 border-round w-full">
+      <h4 class="card-header">Register</h4>
+      <div class="card-body">
+        <form [formGroup]="form" (submit)="onSubmit()" class="justify-content-center">
+<!--          <div class="field">-->
+<!--            <label for="firstName">First Name</label>-->
+<!--            <input id="firstName"  type="text" formControlName="firstName" class="form-control"/>-->
+<!--          </div>-->
+<!--          <div class="field">-->
+<!--            <label for="lastName">Last Name</label>-->
+<!--            <input id="lastName" type="text" formControlName="lastName" class="form-control" />-->
+<!--          </div>-->
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="text" formControlName="email" class="form-control"  />
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input id="password" type="password" formControlName="password" class="form-control" />
+          </div>
+<!--          <div class="field">-->
+<!--            <label for="repeat_password">Repeat password</label>-->
+<!--            <input id="repeat_password" type="password" formControlName="repeat_password" class="form-control" />-->
+<!--          </div>-->
+          <div>
+            <button [disabled]="loading || form.invalid" class="btn btn-primary">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+              Register
+            </button>
+            <a routerLink="../login" class="btn btn-link">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,6 @@
+<p-menubar [model]="items">
+  <div>
+    <button *ngIf="!(isLogin$ | async)" type="button" pButton label="Войти" (click)="routeMenu('Логин', '/auth/login')" icon="pi pi-user" style="margin-left:.25em"></button>
+    <p-splitButton *ngIf="(isLogin$ | async)" [label]="(userName$ | async) || ''"  [model]="userSettings" styleClass="p-button-raised" ></p-splitButton>
+  </div>
+</p-menubar>

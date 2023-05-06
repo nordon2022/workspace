@@ -1,0 +1,75 @@
+<div class="p-4">
+  <p-table #dt1 [value]="testimony"  [scrollable]="true"  dataKey="id"
+          [rows]="1000" [scrollHeight]="'calc(100vh - 140px)'" [showCurrentPageReport]="true" styleClass="p-datatable-sm"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+         [globalFilterFields]="['name','balance','desc']">
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="min-width:50px">
+        <div class="flex justify-content-center align-items-center">
+          Номер участка
+          <p-columnFilter type="numeric" field="home" display="menu"></p-columnFilter>
+        </div>
+      </th>
+      <th pSortableColumn="name" style="min-width:200px">
+        <div class="flex justify-content-center align-items-center">
+          ФИО
+          <p-sortIcon field="code"></p-sortIcon>
+          <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+        </div>
+      </th>
+      <th>
+        <div class="flex justify-content-center align-items-center">
+          Сумма на 28/04/22
+          <p-columnFilter type="numeric" field="balance" display="menu" currency="USD"></p-columnFilter>
+        </div>
+      </th>
+      <th pSortableColumn="desc">
+        <div class="flex justify-content-center align-items-center">
+          Примечание
+           <p-sortIcon field="is_duty"></p-sortIcon>
+          <p-columnFilter type="text" field="desc" display="menu" ></p-columnFilter>
+        </div>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-customer>
+    <tr>
+      <td  style="min-width:50px">
+        {{customer.house}}
+      </td>
+       <td style="min-width:200px">
+        {{customer.name}}
+      </td>
+      <td>
+        {{customer.balance}}
+      </td>
+      <td>
+        {{customer.desc}}
+      </td>
+
+      <!--      <td>-->
+      <!--        {{customer.date | date: 'MM/dd/yyyy'}}-->
+      <!--      </td>-->
+      <!--      <td>-->
+      <!--        {{customer.balance | currency:'USD':'symbol'}}-->
+      <!--      </td>-->
+      <!--      <td>-->
+      <!--        <span [class]="'customer-badge status-' + customer.status">{{customer.status}}</span>-->
+      <!--      </td>-->
+      <!--      <td>-->
+      <!--        <p-progressBar [value]="customer.activity" [showValue]="false"></p-progressBar>-->
+      <!--      </td>-->
+      <!--      <td class="text-center">-->
+      <!--        <i class="pi" [ngClass]="{'true-icon pi-check-circle': customer.verified, 'false-icon pi-times-circle': !customer.verified}"></i>-->
+      <!--      </td>-->
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="7">Ничего не найдено</td>
+    </tr>
+  </ng-template>
+</p-table>
+</div>
+
